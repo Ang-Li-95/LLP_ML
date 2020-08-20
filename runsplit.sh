@@ -1,0 +1,9 @@
+python3.7 splitCSV.py --inputDir 2018MinoAOD/csvFiles/ --input ggToNN_800M_1m.csv
+python3.7 splitCSV.py --inputDir 2018MinoAOD/csvFiles/ --input QCD_HT1000to1500.csv
+python3.7 splitCSV.py --inputDir 2018MinoAOD/csvFiles/ --input QCD_HT1500to2000.csv
+python3.7 splitCSV.py --inputDir 2018MinoAOD/csvFiles/ --input QCD_HT2000toInf.csv
+python3.7 splitCSV.py --inputDir 2018MinoAOD/csvFiles/ --input QCD_HT700to1000.csv
+python3.7 splitCSV.py --inputDir 2018MinoAOD/csvFiles/ --input TTJets_HT1200To2500.csv
+python3.7 splitCSV.py --inputDir 2018MinoAOD/csvFiles/ --input TTJets_HT2500ToInf.csv
+python3.7 splitCSV.py --inputDir 2018MinoAOD/csvFiles/ --input TTJets_HT600To800.csv
+python3.7 splitCSV.py --inputDir 2018MinoAOD/csvFiles/ --input TTJets_HT800To1200.csv
