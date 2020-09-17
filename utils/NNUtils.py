@@ -115,6 +115,36 @@ def importTestData(path, var, scale=True):
   return signal_raw, bkg
 
 
+def importData(path, var, scale=True):
+  '''
+  import csv data
+  path: file paths
+  var: variables to fed into training
+  scale: whether to scale the data
+  '''
+  if path[-1]!='/':
+    path += '/'
+  if(scale):
+    scaler = load('scaler.bin')
+  signal_raw = pd.read_csv(path + 'ggToNN_800M_1mm_wEvt.csv')[var]
+  if(scale):
+    signal_raw = scaler.transform(signal_raw)
+  bkg_name = [path + 'QCD_HT700to1000_wEvt.csv', 
+              path + 'QCD_HT1000to1500_wEvt.csv',
+              path + 'QCD_HT1500to2000_wEvt.csv', 
+              path + 'QCD_HT2000toInf_wEvt.csv', 
+              path + 'TTJets_HT600To800_wEvt.csv', 
+              path + 'TTJets_HT800To1200_wEvt.csv', 
+              path + 'TTJets_HT1200To2500_wEvt.csv',
+              path + 'TTJets_HT2500ToInf_wEvt.csv']
+  bkg = []
+  for b in bkg_name:
+      bkg_raw = pd.read_csv(b)[var]
+      if(scale):
+        bkg_raw = scaler.transform(bkg_raw)
+      bkg.append(bkg_raw)
+
+  return signal_raw, bkg
 
 def make_model(input_dim, metrics=None, output_bias=None):
   if output_bias is not None:
