@@ -11,7 +11,7 @@ args = parser.parse_args()
 
 f = uproot.open(args.input)
 tree = f["DVAnalyzer/tree_DV"]
-var = ['vtx_track_size','vtx_dBV','vtx_sigma_dBV','vtx_x','vtx_y','vtx_z']
+var = ['vtx_track_size','vtx_dBV','vtx_sigma_dBV','vtx_x','vtx_y','vtx_z','evt']
 #var = ['vtx_dBV','vtx_sigma_dBV' ]
 variable_total = np.array([])
 for v in var:
